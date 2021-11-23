@@ -13,7 +13,7 @@ def open_db():
     engine = create_engine('sqlite:///med.sqlite3')
     Session = sessionmaker(bind=engine)
     return Session()
-st.title("Medical Inventory Application")
+st.title("Medicine Inventory Application")
 choices = ['Drug','show Drug details','Stored Drug','show stored Drug','Sales Invoice','sale invoice data','Purchase Invoice','purchase invoice data','Customer','Show Customer Data','supplier','show supplier data','Employee','show employee data','update details','Delete details']
 selected_choice = st.selectbox("select an option",options=choices)
 if selected_choice == choices[0]:
