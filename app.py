@@ -34,7 +34,7 @@ def open_db():
     engine = create_engine('sqlite:///med.sqlite3')
     Session = sessionmaker(bind=engine)
     return Session()
-st.title('Simple Login App')
+st.title('Medicine Inventory Application')
 menu=['Home','Login','Sign up']
 choice=st.sidebar.selectbox("Menu",menu)
 if choice=="home":
