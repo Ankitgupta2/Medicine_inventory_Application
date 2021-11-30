@@ -25,10 +25,6 @@ def login_user(username,password):
 	c.execute('SELECT * FROM userstable WHERE username =? AND password = ?',(username,password))
 	data = c.fetchall()
 	return data
-def view_all_users():
-    c.execute('SELECT * FROM userstable')
-    data=c.fetchall()
-    return data
 def open_db():
     '''function connects to database'''
     engine = create_engine('sqlite:///med.sqlite3')
@@ -48,9 +44,6 @@ elif choice=="Login":
         result=login_user(username,password)
         if result:
             st.success("Logged in as {} ".format(username))
-            b=view_all_users()
-            user_result=pd.DataFrame(b,columns=["Username","Password"])
-            st.dataframe(user_result)
             st.title("Medicine Inventory Application")
             choices = ['Drug','show Drug details','Stored Drug','show stored Drug','Sales Invoice','sale invoice data','Purchase Invoice','purchase invoice data','Customer','Show Customer Data','supplier','show supplier data','Employee','show employee data','update details','Delete details']
             selected_choice = st.selectbox("select an option",options=choices)
